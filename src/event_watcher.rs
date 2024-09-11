@@ -3,6 +3,7 @@ use notify_debouncer_mini::{
     new_debouncer, DebounceEventResult, DebouncedEvent, DebouncedEventKind,
 };
 use std::path::{Path, PathBuf};
+use std::process::Command;
 use std::time::Duration;
 
 pub fn create_debouncer() -> Result<()> {
@@ -44,6 +45,7 @@ fn process_event(event: &DebouncedEvent, required_ext: &str) -> Result<()> {
                 && event_path.exists()
             {
                 println!("{:?}", event_path);
+                run_file(event_path);
             }
         }
         None => {
@@ -55,5 +57,8 @@ fn process_event(event: &DebouncedEvent, required_ext: &str) -> Result<()> {
 }
 
 fn run_file(path: &PathBuf) {
-    todo!()
+    Command::new("node")
+        .arg(path)
+        .spawn()
+        .expect("Failed to run {path}");
 }

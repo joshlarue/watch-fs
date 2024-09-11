@@ -1,3 +1,12 @@
-# eleet-rust
+# fautorun
 
-eleet-rust provides the user with leetcode-style questions in a rustlings-style environment. On save, it will automatically recompile your rust code and check to see if it satisfies the solution requirements.
+fautorun is not revolutionary by any means, but I wanted to build my own filesystem watcher that I can use to watch and run files.
+
+## scope
+
+- [ ] watch filesystem for changes with specified filetypes by the user
+- [ ] compile/run files on save with the correct runtime automatically
+  - [ ] node.js
+  - [ ] cargo
+  - [ ] java
+  - [ ] ... more?
